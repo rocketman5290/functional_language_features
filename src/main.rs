@@ -1,3 +1,4 @@
+use std::collections::HashMap;
 use std::thread;
 use std::time::Duration;
 
@@ -36,8 +37,10 @@ where
     }
 
     fn value(&mut self, arg: u32) -> u32 {
+        let mut hash_of_values = HashMap::new();
+        hash_of_values.entry(arg).or_insert(arg);
         match self.value {
-            Some(v) => v,
+            Some(_v) => hash_of_values[&arg],
             None => {
                 let v = (self.calculation)(arg);
                 self.value = Some(v);
@@ -111,4 +114,13 @@ fn main() {
     let simulated_random_number = 4;
 
     generate_workout(simulated_user_specified_value, simulated_random_number);
+}
+
+#[test]
+fn call_with_different_values() {
+    let mut c = Cacher::new(|a| a);
+    let v1 = c.value(1);
+    let v2 = c.value(2);
+
+    assert_eq!(v2, 2);
 }
