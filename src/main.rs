@@ -107,8 +107,8 @@ fn main() {
     println!("{}", add_one_v3(1));
     println!("{}", add_one_v4(1));
 
-    let simulated_user_specified_value = 10;
-    let simulated_random_number = 7;
+    let simulated_user_specified_value = 26;
+    let simulated_random_number = 4;
 
     generate_workout(simulated_user_specified_value, simulated_random_number);
 }
