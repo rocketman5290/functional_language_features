@@ -8,14 +8,27 @@ fn simulated_expensive_calculation(intensity: u32) -> u32 {
 }
 
 fn generate_workout(intensity: u32, random_number: u32) {
+    let expensive_closure = |num| {
+        println!("Calculating slowly...");
+        thread::sleep(Duration::from_secs(2));
+        num
+    };
+    // replace with closure as the value of expensive_closure variable 
+    //    which stores the annoynemous function until needed and then is called,
+    //    returning the side effects defined and the return value num at the end.
+    
+    // let expensive_result = simulated_expensive_calculation(intensity);
+    
     if intensity < 25 {
         println!(
             "Today, do {} pushups!",
-            simulated_expensive_calculation(intensity)
+            // expensive_result replaced by below line
+            expensive_closure(intensity)
         );
         println!(
             "Today, do {} situps!",
-            simulated_expensive_calculation(intensity)
+            // expensive_result replaced by below line
+            expensive_closure(intensity)
         );
     } else {
         if random_number == 3 {
@@ -23,7 +36,8 @@ fn generate_workout(intensity: u32, random_number: u32) {
         } else {
             println!(
                 "Today, run for {} minutes",
-                simulated_expensive_calculation(intensity)
+                // expensive_result replaced by below line
+                expensive_closure(intensity)
             )
         }
     }
