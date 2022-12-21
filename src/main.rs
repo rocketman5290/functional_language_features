@@ -96,7 +96,19 @@ fn generate_workout(intensity: u32, random_number: u32) {
         }
     }
 }
+
+//Closures can also:
+// - They can capture their envirnment and access variables
+//   from the scop in which they are defined.
+fn capturing_their_enviornment() -> bool {
+    let x = 4;
+    let equal_to_x = |z| z == x;
+    let y = 4;
+    equal_to_x(y)
+}
+
 fn main() {
+    println!("{:?}", capturing_their_enviornment());
     println!("examples of all the same work in function and then closure form");
     fn add_one_v1(x: u32) -> u32 {
         x + 1
