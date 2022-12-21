@@ -2,6 +2,8 @@ use std::collections::HashMap;
 use std::thread;
 use std::time::Duration;
 
+use functional_language_features;
+
 //replaced by closure aka anonymous function.
 // fn simulated_expensive_calculation(intensity: u32) -> u32 {
 //     println!("Calculating slowly...");
@@ -108,6 +110,7 @@ fn capturing_their_enviornment() -> bool {
 }
 
 fn main() {
+    functional_language_features::working_with_iterators();
     println!("{:?}", capturing_their_enviornment());
     println!("examples of all the same work in function and then closure form");
     fn add_one_v1(x: u32) -> u32 {
