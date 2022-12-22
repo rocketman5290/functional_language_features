@@ -142,13 +142,13 @@ fn call_with_different_values() {
 
 #[test]
 fn iterator_sum() {
-    let v1 = vec![1,2,3];
-    //iterators are lazy and must be consumed hence the v1_iter variable 
+    let v1 = vec![1, 2, 3];
+    //iterators are lazy and must be consumed hence the v1_iter variable
     //prior to calling sum and totaling the vector.
     //methods that call next are refered to as CONSUMING ADAPTORS
     //  an example of one of these is sum()
     //methods that change iterator into other iterators are refered to as ITERATOR ADAPTORS
-    //  example of these are ..iter().map(|x| x + 1), and that fact that they are lazy is 
+    //  example of these are ..iter().map(|x| x + 1), and that fact that they are lazy is
     //  obvious here becasue in order for this closure to be called the variable needs to be consumed.
     // collect() will capture an iterator back into a collection data structure like a vector.
     let v1_iter = v1.iter();
@@ -157,9 +157,7 @@ fn iterator_sum() {
 }
 
 #[test]
-fn iterator_adapter_filter() {
-    
-}
+fn iterator_adapter_filter() {}
 
 #[test]
 fn iterator_collect() {
