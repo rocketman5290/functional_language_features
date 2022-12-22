@@ -150,8 +150,20 @@ fn iterator_sum() {
     //methods that change iterator into other iterators are refered to as ITERATOR ADAPTORS
     //  example of these are ..iter().map(|x| x + 1), and that fact that they are lazy is 
     //  obvious here becasue in order for this closure to be called the variable needs to be consumed.
-    
+    // collect() will capture an iterator back into a collection data structure like a vector.
     let v1_iter = v1.iter();
     let total: i32 = v1_iter.sum();
     assert_eq!(total, 6);
+}
+
+#[test]
+fn iterator_adapter_filter() {
+    
+}
+
+#[test]
+fn iterator_collect() {
+    let v1: Vec<u32> = vec![1, 2, 3];
+    let v2: Vec<_> = v1.iter().map(|x| x + 1).collect();
+    assert_eq!(v2, vec![2, 3, 4]);
 }
