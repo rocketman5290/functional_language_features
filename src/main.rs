@@ -143,6 +143,14 @@ fn call_with_different_values() {
 #[test]
 fn iterator_sum() {
     let v1 = vec![1,2,3];
+    //iterators are lazy and must be consumed hence the v1_iter variable 
+    //prior to calling sum and totaling the vector.
+    //methods that call next are refered to as CONSUMING ADAPTORS
+    //  an example of one of these is sum()
+    //methods that change iterator into other iterators are refered to as ITERATOR ADAPTORS
+    //  example of these are ..iter().map(|x| x + 1), and that fact that they are lazy is 
+    //  obvious here becasue in order for this closure to be called the variable needs to be consumed.
+    
     let v1_iter = v1.iter();
     let total: i32 = v1_iter.sum();
     assert_eq!(total, 6);
