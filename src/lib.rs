@@ -32,6 +32,9 @@ struct Shoe {
 }
 
 fn shoes_in_my_size(shoes: Vec<Shoe>, shoe_size: u32) -> Vec<Shoe> {
+    //call into_iter() to create an iterator that takes ownership of the vector,
+    //and can then filter it and collect it into a new iterator that contains only the 
+    //shoe instances that return true based on the equality expression found in the closure.
     shoes.into_iter().filter(|s| s.size == shoe_size).collect()
 }
 
