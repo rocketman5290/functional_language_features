@@ -4,14 +4,12 @@ use std::time::Duration;
 
 use functional_language_features;
 
-
 //replaced by closure aka anonymous function.
 // fn simulated_expensive_calculation(intensity: u32) -> u32 {
 //     println!("Calculating slowly...");
 //     thread::sleep(Duration::from_secs(2));
 //     intensity
 // }
-
 
 struct Cacher<T>
 where

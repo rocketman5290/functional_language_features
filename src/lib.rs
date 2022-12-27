@@ -6,9 +6,12 @@
 //! To define structs,enums, or functions that hold a closures
 //!      we need to use generics and trait bounds, see chapter 10 and saved cargo crate.'
 //! Traits provided by std library are: Fn FnMut FnOnce...
+
 // Comments to use to describe on the cover page of the generated documentation that is used to
-// describe the crate as a whole instead of individual functions with examples which uses '///' and 
+// describe the crate as a whole instead of individual functions with examples which uses '///' and
 // are ran through the test suite.
+
+/// Examples of iterators in use
 pub fn working_with_iterators() {
     println!("working with iterators!!");
 
@@ -26,7 +29,6 @@ fn iterator_demo() {
     //calling next on iterator changes internal state and
     //therfore need mut added to it so it can be changed.
     let mut v1_iter = v1.iter();
-
     println!("{:?}", v1_iter.next());
     println!("{:?}", v1_iter.next());
     println!("{:?}", v1_iter.next());
@@ -44,7 +46,7 @@ struct Shoe {
 
 fn shoes_in_my_size(shoes: Vec<Shoe>, shoe_size: u32) -> Vec<Shoe> {
     //call into_iter() to create an iterator that takes ownership of the vector,
-    //and can then filter it and collect it into a new iterator that contains only the 
+    //and can then filter it and collect it into a new iterator that contains only the
     //shoe instances that return true based on the equality expression found in the closure.
     shoes.into_iter().filter(|s| s.size == shoe_size).collect()
 }
@@ -59,7 +61,7 @@ impl Counter {
     }
 }
 
-//Implementing Iterator trait for counter which allows us to use 
+//Implementing Iterator trait for counter which allows us to use
 //associated iterator functions.
 impl Iterator for Counter {
     type Item = u32;
@@ -74,7 +76,19 @@ impl Iterator for Counter {
     }
 }
 
-
+/// Adds on to the number given.
+///
+/// # Examples
+///
+/// ```
+/// let arg = 5;
+/// let answer = functional_language_features::add_one(arg);
+///
+/// assert_eq!(6, answer);
+/// ```
+pub fn add_one(num: u32) -> u32 {
+    num + 1
+}
 
 #[cfg(test)]
 mod tests {
@@ -84,8 +98,9 @@ mod tests {
 
     #[test]
     fn using_other_iterator_trait_methods() {
-        let sum: u32 = Counter::new().zip(Counter::new().skip(1))
-            .map(|(a,b)| a * b)
+        let sum: u32 = Counter::new()
+            .zip(Counter::new().skip(1))
+            .map(|(a, b)| a * b)
             .filter(|x| x % 3 == 0)
             .sum();
         assert_eq!(18, sum);
