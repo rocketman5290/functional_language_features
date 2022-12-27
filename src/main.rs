@@ -4,6 +4,7 @@ use std::time::Duration;
 
 use functional_language_features;
 
+
 //replaced by closure aka anonymous function.
 // fn simulated_expensive_calculation(intensity: u32) -> u32 {
 //     println!("Calculating slowly...");
@@ -11,14 +12,7 @@ use functional_language_features;
 //     intensity
 // }
 
-//Memoization or lazy evaluation:
-// Act of saving the closure in a struct and cacheing its
-//      resulting value to the struct as well, so the rest of our
-//      code doesnt have to be responsible for saving and reusing the result.
 
-// To define structs,enums, or functions that hold a closures
-//      we need to use generics and trait bounds, see chapter 10 and saved cargo crate.'
-// Traits provided by std library are: Fn FnMut FnOnce...
 struct Cacher<T>
 where
     T: Fn(u32) -> u32,
@@ -99,9 +93,10 @@ fn generate_workout(intensity: u32, random_number: u32) {
     }
 }
 
-//Closures can also:
-// - They can capture their envirnment and access variables
-//   from the scop in which they are defined.
+/// pub fn capturing_their_enviornment()
+/// Closures can also:
+/// -They can capture their envirnment and access variables
+///   from the scop in which they are defined.
 fn capturing_their_enviornment() -> bool {
     let x = 4;
     let equal_to_x = |z| z == x;

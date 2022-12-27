@@ -1,3 +1,14 @@
+//! Memoization or lazy evaluation:
+//! Act of saving the closure in a struct and cacheing its
+//!      resulting value to the struct as well, so the rest of our
+//!      code doesnt have to be responsible for saving and reusing the result.
+
+//! To define structs,enums, or functions that hold a closures
+//!      we need to use generics and trait bounds, see chapter 10 and saved cargo crate.'
+//! Traits provided by std library are: Fn FnMut FnOnce...
+// Comments to use to describe on the cover page of the generated documentation that is used to
+// describe the crate as a whole instead of individual functions with examples which uses '///' and 
+// are ran through the test suite.
 pub fn working_with_iterators() {
     println!("working with iterators!!");
 
@@ -44,7 +55,7 @@ struct Counter {
 
 impl Counter {
     fn new() -> Counter {
-        Counter { count: 0}
+        Counter { count: 0 }
     }
 }
 

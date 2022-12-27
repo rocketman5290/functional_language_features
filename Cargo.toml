@@ -4,5 +4,15 @@ version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+# https://doc.rust-lang.org/cargo/.
 
 [dependencies]
+
+# Below are the default optimization level defined 
+# for the dev and release profiles
+# optimization level is 0..3, 3 being the most optimized.
+[profile.dev]
+opt-level = 0
+
+[profile.release]
+opt-level = 3
