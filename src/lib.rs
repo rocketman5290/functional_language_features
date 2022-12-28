@@ -14,7 +14,8 @@
 //! # Art
 //! 
 //! A library for modeling artistic concepts.
-
+//re-exporting with pub self:: to help shape the public facing API, and help
+//it make more sense for the consumers of this code.
 pub use self::kinds::PrimaryColor;
 pub use self::kinds::SecondaryColor;
 pub use self::utils::mix;
